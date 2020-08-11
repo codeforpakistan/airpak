@@ -9,9 +9,9 @@ class ApiProvider {
 
   Future<Report> fetchReport() async {
     int randomNumber = random.nextInt(100) + 1;
-    final _baseUrl = "https://jsonplaceholder.typicode.com/albums/$randomNumber";
+    final _baseUrl = "http://www.weather.opendatapakistan.info";
     print("baseUrl $_baseUrl");
-    final response = await client.get("$_baseUrl"); // Make the network call asynchronously to fetch the data.
+    final response = await client.get("$_baseUrl" + '/air-pak/islamabad/0/0'); // Make the network call asynchronously to fetch the data.
     print(response.body.toString());
 
     if (response.statusCode == 200) {

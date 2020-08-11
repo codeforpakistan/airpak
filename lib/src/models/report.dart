@@ -1,15 +1,13 @@
 class Report {
-  int userId;
-  int id;
-  String title;
+  String totalPollenCount;
+  double temprature;
+  String airQuality;
 
-  Report({this.userId, this.id, this.title});
+  Report({this.totalPollenCount, this.temprature, this.airQuality});
 
-  factory Report.fromJson(Map<String, dynamic> json) {
-    return Report(
-      userId: json['userId'],
-      id: json['id'],
-      title: json['title'],
-    );
-  }
+  Report.fromJson(Map<String, dynamic> parsedJson)
+    : totalPollenCount = parsedJson['totalPollenCount'],
+      temprature = parsedJson['currentTemperature'],
+      airQuality = parsedJson['airQuality'];
+
 }

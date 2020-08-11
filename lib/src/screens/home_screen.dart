@@ -9,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  bool _showInfo = true;
+  bool _showInfo = false;
  
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,11 @@ class HomeScreenState extends State<HomeScreen> {
     return StreamBuilder(
       stream: reportBloc.result,
       builder: (context, AsyncSnapshot<Report> snapshot) {
+        if(!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
         if (snapshot.hasData) {
           return _buildHomeScreen(snapshot.data);
         } else if (snapshot.hasError) {
@@ -27,16 +32,16 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   Container _buildHomeScreen(Report data) {
-    return Container(
+     return Container(
       padding: const EdgeInsets.all(17.0),
-      margin: const EdgeInsets.only(top: 100.0),
+      margin: const EdgeInsets.only(top: 50.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _buildLocation(data.userId),
-          _buildTemperature(data.id),
-          _buildAirQuality(453),
-          _buildPollen(100),
+          _buildLocation(1),
+          _buildTemperature(data.temprature),
+          _buildAirQuality(data.airQuality),
+          _buildPollen(data.totalPollenCount),
           _buildInfoButton(),
         ],
       ),
@@ -58,7 +63,7 @@ class HomeScreenState extends State<HomeScreen> {
     ]);
   }
 
-  Column _buildTemperature(int temp) {
+  Column _buildTemperature(double temp) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,7 +73,7 @@ class HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "65 °C  ",
+              "$temp °C  ",
               style:
                 TextStyle(color: Color(0xffaf0d0c), fontSize: 24.0),
               textAlign: TextAlign.left,
@@ -109,7 +114,7 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Column _buildAirQuality(int value) {
+  Column _buildAirQuality(String value) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -136,7 +141,7 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Column _buildPollen(int value) {
+  Column _buildPollen(String value) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
