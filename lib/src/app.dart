@@ -6,10 +6,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('AirPak'),
-          backgroundColor: Color.fromRGBO(102, 179, 120, 70)
-        ),
+        // appBar: AppBar(
+        //   title: Text('AirPak'),
+        //   backgroundColor: Color.fromRGBO(102, 179, 120, 70)
+        // ),
         body: HomeScreen(),
       ),
     );
