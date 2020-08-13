@@ -7,11 +7,16 @@ class ApiProvider {
   Client client = Client();
   Random random = new Random();
 
-  Future<Report> fetchReport() async {
-    int randomNumber = random.nextInt(100) + 1;
-    final _baseUrl = "http://www.weather.opendatapakistan.info";
+  Future<Report> fetchReport(String city, var _locationData) async {
+    if (city == null || city == 'Rawalpindi') {
+      city = 'Islamabad';
+    }
+    city = city.toLowerCase();
+    print('Got city $city');
+    final _baseUrl = "http://www.weather.opendatapakistan.info" + "/air-pak/$city/${_locationData.latitude}/${_locationData.longitude}";
+    // final _baseUrl = "http://localhost:3000" + "/air-pak/$city/${_locationData.latitude}/${_locationData.longitude}";
     print("baseUrl $_baseUrl");
-    final response = await client.get("$_baseUrl" + '/air-pak/islamabad/0/0'); // Make the network call asynchronously to fetch the data.
+    final response = await client.get("$_baseUrl"); // Make the network call asynchronously to fetch the data.
     print(response.body.toString());
 
     if (response.statusCode == 200) {

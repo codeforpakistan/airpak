@@ -32,14 +32,14 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   Container _buildHomeScreen(Report data) {
-     return Container(
+    return Container(
       padding: const EdgeInsets.all(17.0),
       margin: const EdgeInsets.only(top: 50.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           _buildLocation(1),
-          _buildTemperature(data.temprature),
+          _buildTemperature(data.temperature),
           _buildAirQuality(data.airQuality),
           _buildPollen(data.totalPollenCount),
           _buildInfoButton(),
@@ -124,7 +124,7 @@ class HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "$value gm/cm",
+            "$value US AQI",
             style:
               TextStyle(color: Color(0xff0d9b9b), fontSize: 24.0),
             textAlign: TextAlign.left,

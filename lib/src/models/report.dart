@@ -1,13 +1,12 @@
 class Report {
   String totalPollenCount;
-  double temprature;
+  double temperature;
   String airQuality;
 
-  Report({this.totalPollenCount, this.temprature, this.airQuality});
+  Report({this.totalPollenCount, this.temperature, this.airQuality});
 
   Report.fromJson(Map<String, dynamic> parsedJson)
     : totalPollenCount = parsedJson['totalPollenCount'],
-      temprature = parsedJson['currentTemperature'],
-      airQuality = parsedJson['airQuality'];
-
+      temperature = parsedJson['currentTemperature'],
+      airQuality = parsedJson['aqius'];
 }

@@ -27,8 +27,9 @@ dependencies:
   rxdart: ^0.24.1
   intl: ^0.16.1
   flutter_svg: ^0.18.0
-
-
+  location: ^3.0.2
+  pull_to_refresh: ^1.6.0
+  geocoder: ^0.2.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
