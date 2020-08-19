@@ -114,7 +114,7 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Column _buildAirQuality(String value) {
+  Column _buildAirQuality(int value) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
