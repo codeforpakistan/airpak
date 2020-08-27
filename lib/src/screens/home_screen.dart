@@ -110,7 +110,7 @@ class HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: 40),
               Text(
                 "$text",
                 style: TextStyle(color: Color(0xffaaa9ab), fontSize: 14.0),
