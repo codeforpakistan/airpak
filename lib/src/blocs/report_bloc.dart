@@ -6,7 +6,6 @@ import '../persistence/repository.dart';
 import 'package:location/location.dart';
 import 'package:geocoder/geocoder.dart';
 
-
 class ReportBloc {
   Repository _repository = Repository();
 
@@ -14,12 +13,12 @@ class ReportBloc {
   bool _serviceEnabled;
   PermissionStatus _permissionGranted;
   LocationData _locationData;
-  String _locality;
+  String city;
 
   //Create a PublicSubject object responsible to add the data which is got from
   // the server in the form of Report object and pass it to the UI screen as a stream.
   final _reportFetcher = PublishSubject<Report>();
-  
+
   //This method is used to pass the response as stream to UI
   Stream<Report> get result => _reportFetcher.stream;
 
@@ -27,7 +26,7 @@ class ReportBloc {
     if (_locationData == null) {
       await this.getLocation();
     }
-    Report reportResponse = await _repository.fetchReport(_locality, _locationData);
+    Report reportResponse = await _repository.fetchReport(city, _locationData);
     _reportFetcher.sink.add(reportResponse);
   }
 
@@ -49,11 +48,12 @@ class ReportBloc {
     }
 
     try {
-      _locationData = await location.getLocation().timeout(const Duration(seconds: 2));
+      _locationData =
+          await location.getLocation().timeout(const Duration(seconds: 2));
       if (_locationData != null) {
         getCityFromCoords(_locationData.latitude, _locationData.longitude);
       }
-    }  on TimeoutException catch (_err) {
+    } on TimeoutException catch (_err) {
       // print('location could not be read $_err');
     }
 
@@ -63,16 +63,16 @@ class ReportBloc {
       }
       fetchReport();
     });
-
   }
 
   getCityFromCoords(lat, long) async {
     try {
       final coordinates = new Coordinates(lat, long);
-      var addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
+      var addresses =
+          await Geocoder.local.findAddressesFromCoordinates(coordinates);
       var first = addresses.first;
       // print("${first.addressLine} : ${first.adminArea}");
-      _locality = first.locality;
+      city = first.locality;
     } on Exception catch (_) {
       // print('never reached');
     }

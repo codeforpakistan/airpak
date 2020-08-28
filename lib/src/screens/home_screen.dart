@@ -38,7 +38,7 @@ class HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _buildLocation(1),
+          _buildLocation(reportBloc.city),
           _buildTemperature(data.temperature),
           _buildAirQuality(data.airQuality),
           _buildPollen(data.totalPollenCount),
@@ -48,7 +48,7 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Row _buildLocation(int userID) {
+  Row _buildLocation(String city) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,7 +56,7 @@ class HomeScreenState extends State<HomeScreen> {
           SvgPicture.asset("assets/images/noun_Location.svg",
               width: 50, color: Color(0xffaaa9ab)),
           Text(
-            "Islamabad",
+            "$city",
             style: TextStyle(color: Color(0xffaaa9ab), fontSize: 20.0),
             textAlign: TextAlign.left,
           ),
