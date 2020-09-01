@@ -68,26 +68,14 @@ class HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    temp != null ? temp.toString() + " °C  " : "N/A",
-                    style: TextStyle(color: Color(0xffaf0d0c), fontSize: 24.0),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(height: 20),
-                  SvgPicture.asset("assets/images/noun_Temperature.svg",
-                      width: 60, color: Color(0xffaf0d0c)),
-                ],
-              ),
-            ],
+          Text(
+            temp != null ? temp.toString() + " °C  " : "N/A",
+            style: TextStyle(color: Color(0xffaf0d0c), fontSize: 24.0),
+            textAlign: TextAlign.left,
           ),
+          SizedBox(height: 20),
+          SvgPicture.asset("assets/images/noun_Temperature.svg",
+              width: 60, color: Color(0xffaf0d0c)),
           Visibility(
             visible: _showInfo == true,
             maintainState: true,
@@ -124,26 +112,14 @@ class HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      value != null ? value.toString() + " US AQI" : "N/A",
-                      style:
-                          TextStyle(color: Color(0xff0d9b9b), fontSize: 24.0),
-                      textAlign: TextAlign.left,
-                    ),
-                    SizedBox(height: 20),
-                    SvgPicture.asset("assets/images/noun_air quality.svg",
-                        width: 60, color: Color(0xff0d9b9b)),
-                  ],
-                )
-              ]),
+          Text(
+            value != null ? value.toString() + " US AQI" : "N/A",
+            style: TextStyle(color: Color(0xff0d9b9b), fontSize: 24.0),
+            textAlign: TextAlign.left,
+          ),
+          SizedBox(height: 20),
+          SvgPicture.asset("assets/images/noun_air quality.svg",
+              width: 60, color: Color(0xff0d9b9b)),
           Visibility(
             visible: _showInfo == true,
             maintainState: true,
@@ -158,26 +134,14 @@ class HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      value != null ? value.toString() + " m³" : "N/A",
-                      style:
-                          TextStyle(color: Color(0xffd98601), fontSize: 24.0),
-                      textAlign: TextAlign.left,
-                    ),
-                    SizedBox(height: 20),
-                    SvgPicture.asset("assets/images/noun_pollen.svg",
-                        width: 60, color: Color(0xffd98601)),
-                  ],
-                )
-              ]),
+          Text(
+            value != null ? value.toString() + " m³" : "N/A",
+            style: TextStyle(color: Color(0xffd98601), fontSize: 24.0),
+            textAlign: TextAlign.left,
+          ),
+          SizedBox(height: 20),
+          SvgPicture.asset("assets/images/noun_pollen.svg",
+              width: 60, color: Color(0xffd98601)),
           Visibility(
             visible: _showInfo == true,
             maintainState: true,
