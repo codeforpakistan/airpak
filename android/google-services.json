@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "803141965298",
+    "firebase_url": "https://airpak-50850.firebaseio.com",
+    "project_id": "airpak-50850",
+    "storage_bucket": "airpak-50850.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803141965298:android:b6620d9bb12fd8a971c76b",
+        "android_client_info": {
+          "package_name": "com.codeforpakistan.airpak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803141965298-pj5npgig9psfr4s7ed15c8ugg589fn79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgvZ370Kfv5HMVlJ9cxRQ6RGpi05-bvI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803141965298-pj5npgig9psfr4s7ed15c8ugg589fn79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
