@@ -1,5 +1,5 @@
 name: airpak
-description: A new Flutter project.
+description: An app that shows air quality data based on location.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
