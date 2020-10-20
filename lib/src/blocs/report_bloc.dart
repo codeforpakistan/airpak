@@ -53,7 +53,7 @@ class ReportBloc {
       if (_locationData != null) {
         getCityFromCoords(_locationData.latitude, _locationData.longitude);
       }
-    } on TimeoutException catch (_err) {
+    } on TimeoutException catch (_) {
       // print('location could not be read $_err');
     }
 
