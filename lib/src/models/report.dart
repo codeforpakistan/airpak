@@ -1,10 +1,15 @@
 class Report {
+  String cityName;
   String totalPollenCount;
   double temperature;
   int airQuality;
 
-  Report({this.totalPollenCount, this.temperature, this.airQuality});
-  
+  Report(
+      {this.cityName,
+      this.totalPollenCount,
+      this.temperature,
+      this.airQuality});
+
   static double checkDouble(dynamic value) {
     if (value is String) {
       return double.parse(value);
@@ -16,7 +21,8 @@ class Report {
   }
 
   Report.fromJson(Map<String, dynamic> parsedJson)
-    : totalPollenCount = parsedJson['totalPollenCount'],
-      temperature = checkDouble(parsedJson['currentTemperature']),
-      airQuality = parsedJson['aqius'];
+      : cityName = parsedJson['cityName'],
+        totalPollenCount = parsedJson['totalPollenCount'],
+        temperature = checkDouble(parsedJson['currentTemperature']),
+        airQuality = parsedJson['aqius'];
 }

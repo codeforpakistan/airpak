@@ -38,7 +38,8 @@ class HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _buildLocation(reportBloc.city),
+          _buildLocation(
+              data.cityName[0].toUpperCase() + data.cityName.substring(1)),
           _buildTemperature(data.temperature),
           _buildAirQuality(data.airQuality),
           _buildPollen(data.totalPollenCount),
